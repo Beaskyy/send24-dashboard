@@ -1,7 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useStateContext } from "@/contexts/StateProvider";
+import { useStateContext } from "@/contexts/ContextProvider";
+import { LayoutGrid } from "lucide-react";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
@@ -13,8 +15,10 @@ export default function Home() {
     }
   }, [token]);
   return (
-    <main className="flex justify-center items-center h-screen">
+    <main>
       <Button variant="outline">Send 24</Button>
+    
+      <LayoutGrid className="text-sky-500 size-6" />
     </main>
   );
 }
