@@ -3,10 +3,17 @@
 import Image from "next/image";
 import { useStateContext } from "@/contexts/ContextProvider";
 import { Navigation } from "./Navigation";
-import { Menu } from "lucide-react";
-// import { ModeToggle } from "./mode-toggle";
+import { Bell, ChevronDown, Menu } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-const Header = ({headerText}: {headerText: string}) => {
+const Header = ({ headerText }: { headerText: string }) => {
   const { activeMenu, setActiveMenu } = useStateContext();
   return (
     <header
@@ -32,18 +39,10 @@ const Header = ({headerText}: {headerText: string}) => {
                 />
               </div>
               <div>
-                {/* <Image
-                  src="/images/keyboard_double_arrow_left.svg"
-                  alt="Logo"
-                  width={24}
-                  height={24}
-                  className="cursor-pointer rotate-180"
-                  onClick={() => setActiveMenu(!activeMenu)}
-                /> */}
                 <Menu
-                className="cursor-pointer size-6"
-                onClick={() => setActiveMenu(!activeMenu)}
-              />
+                  className="cursor-pointer size-6"
+                  onClick={() => setActiveMenu(!activeMenu)}
+                />
               </div>
             </div>
           )}
@@ -51,34 +50,24 @@ const Header = ({headerText}: {headerText: string}) => {
             <Navigation />
           </div>
         </div>
-        
+
         <div className="flex justify-center items-center gap-4 pr-[34px]">
-          {/* <Image
-            src="/images/notifications_none.svg"
-            alt="notifications"
-            width={24}
-            height={24}
-            className="cursor-pointer"
-          /> */}
-          {/* <ModeToggle /> */}
+          <Bell className="size-6 text-[#5D5D5D]" />
           <div className="flex justify-center items-center gap-2 cursor-pointer">
-            <div className="size-8 bg-[#f5f5f5] rounded-full">
-              {/* <Image
-                src="/images/profile.png"
-                alt="profile"
-                width={32}
-                height={32}
-              /> */}
-              profile
+            <div className="size-8 bg-[#f5f5f5] rounded-full flex justify-center items-center">
+              A
             </div>
-            <div>
-              {/* <Image
-                src="/images/expand_more.svg"
-                alt="profile"
-                width={20}
-                height={20}
-              /> */}
-              expand
+            <div className="flex">
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <ChevronDown className="text-[#5D5D5D] size-5" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>Logout</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>

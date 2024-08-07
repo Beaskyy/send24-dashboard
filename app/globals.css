@@ -66,4 +66,7 @@
   body {
     @apply bg-[#FAFBFC] text-foreground;
   }
+  .card {
+    @apply bg-[#FFFFFF] shadow-2xl rounded-xl py-4 px-6;
+  }
 }
