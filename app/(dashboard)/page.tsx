@@ -1,5 +1,6 @@
 "use client";
 
+import Overview from "@/components/Overview";
 import { Button } from "@/components/ui/button";
 import { useStateContext } from "@/contexts/ContextProvider";
 import { LayoutGrid } from "lucide-react";
@@ -15,10 +16,8 @@ export default function Home() {
     }
   }, [token]);
   return (
-    <main>
-      <Button variant="outline">Send 24</Button>
-    
-      <LayoutGrid className="text-sky-500 size-6" />
+    <main className="lg:mt-[52px] mt-8 lg:ml-10 lg:mr-9 mx-4">
+      <Overview />
     </main>
   );
 }
