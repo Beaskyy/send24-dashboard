@@ -17,7 +17,7 @@ const Header = ({ headerText }: { headerText: string }) => {
   const { activeMenu, setActiveMenu } = useStateContext();
   return (
     <header
-      className={`fixed  z-20 w-full bg-white transition-all duration-300 ${
+      className={`fixed  z-20 w-full bg-[#FAFBFC] transition-all duration-300 ${
         activeMenu ? "lg:left-[252px] lg:w-custom" : "lg:left-0"
       }`}
     >
@@ -57,7 +57,7 @@ const Header = ({ headerText }: { headerText: string }) => {
             <div className="size-8 bg-[#f5f5f5] rounded-full flex justify-center items-center">
               A
             </div>
-            <div className="flex">
+            {/* <div className="flex">
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <ChevronDown className="text-[#5D5D5D] size-5" />
@@ -68,7 +68,7 @@ const Header = ({ headerText }: { headerText: string }) => {
                   <DropdownMenuItem>Logout</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
