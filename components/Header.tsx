@@ -57,7 +57,7 @@ const Header = ({ headerText }: { headerText: string }) => {
             <div className="size-8 bg-[#f5f5f5] rounded-full flex justify-center items-center">
               A
             </div>
-            <div className="flex">
+            {/* <div className="flex">
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <ChevronDown className="text-[#5D5D5D] size-5" />
@@ -68,7 +68,7 @@ const Header = ({ headerText }: { headerText: string }) => {
                   <DropdownMenuItem>Logout</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
