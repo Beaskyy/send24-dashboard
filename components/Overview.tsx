@@ -261,43 +261,43 @@ const Overview = () => {
                 <div className="card">
                   <div className="flex justify-between items-center mb-6 text-[#121212]">
                     <h5 className="text-sm">Senders</h5>
-                    <p>100</p>
+                    <p>{total?.user_count}</p>
                   </div>
                   <div className="flex justify-between items-center text-[#059669] text-sm mb-1">
                     <h5 className="text-sm">Android</h5>
-                    <p>70</p>
+                    <p>{total?.android_user_count}</p>
                   </div>
                   <div className="flex justify-between items-center text-[#E87000] text-sm">
                     <h5 className="text-sm">iPhone</h5>
-                    <p>30</p>
+                    <p>{total?.ios_user_count}</p>
                   </div>
                 </div>
                 <div className="card">
                   <div className="flex justify-between items-center mb-6 text-[#121212]">
                     <h5 className="text-sm">Partners</h5>
-                    <p>100</p>
+                    <p>{total?.partner_count}</p>
                   </div>
                   <div className="flex justify-between items-center text-[#059669] text-sm mb-1">
                     <h5 className="text-sm">Android</h5>
-                    <p>70</p>
+                    <p>{total?.android_partner_count}</p>
                   </div>
                   <div className="flex justify-between items-center text-[#E87000] text-sm">
                     <h5 className="text-sm">iPhone</h5>
-                    <p>30</p>
+                    <p>{total?.ios_partner_count}</p>
                   </div>
                 </div>
                 <div className="card">
                   <div className="flex justify-between items-center mb-4 text-[#121212]">
                     <h5 className="text-sm">Centers</h5>
-                    <p>100</p>
+                    <p>{total?.centers_count}</p>
                   </div>
                   <div className="flex justify-between items-center mb-4">
                     <h5 className="text-sm">Hubs</h5>
-                    <p>70</p>
+                    <p>{total?.hubs_count}</p>
                   </div>
                   <div className="flex justify-between items-center">
                     <h5 className="text-sm">Sweepers</h5>
-                    <p>30</p>
+                    <p>{total?.sweepers_count}</p>
                   </div>
                 </div>
                 <div className="card">
@@ -307,7 +307,7 @@ const Overview = () => {
                     </div>
                   </div>
                   <h5 className="text-[#121212] text-sm mb-4">Revenue</h5>
-                  <p className="text-lg">₦5,000,000.55</p>
+                  <p className="text-lg">₦{total?.total_revenue}</p>
                 </div>
                 <div className="lg:col-span-4">
                   <div className="grid lg:grid-cols-4 gap-6">
@@ -324,7 +324,7 @@ const Overview = () => {
                         <h5 className="text-[#121212] text-sm mb-4">
                           PayStack Balance
                         </h5>
-                        <p className="text-lg">₦5,000,000.55</p>
+                        <p className="text-lg">₦{total?.paystack_balance}</p>
                       </div>
                       <div className="card">
                         <div>
@@ -335,7 +335,7 @@ const Overview = () => {
                         <h5 className="text-[#121212] text-sm mb-4">
                           SMS Balance
                         </h5>
-                        <p className="text-lg">₦5,000,000.55</p>
+                        <p className="text-lg">₦{total?.termii_balance}</p>
                       </div>
                     </div>
                   </div>
@@ -353,7 +353,7 @@ const Overview = () => {
               <h5 className="text-[#121212] text-sm mb-4">
                 Senders Wallet Balance
               </h5>
-              <p className="text-lg">₦5,000,000.55</p>
+              <p className="text-lg">₦{total?.users_wallet_balance}</p>
             </div>
             <div className="card">
               <div>
@@ -364,7 +364,7 @@ const Overview = () => {
               <h5 className="text-[#121212] text-sm mb-4">
                 Partners Wallet Balance
               </h5>
-              <p className="text-lg">₦5,000,000.55</p>
+              <p className="text-lg">₦{total?.partners_wallet_balance}</p>
             </div>
             <div className="card">
               <div>
@@ -373,20 +373,19 @@ const Overview = () => {
                 </div>
               </div>
               <h5 className="text-[#121212] text-sm mb-4">
-                Senders Wallet Balance
+                Hubs Wallet Balance
               </h5>
               <p className="text-lg">₦5,000,000.55</p>
             </div>
+
             <div className="card">
               <div>
                 <div className="rounded-lg p-1.5 bg-[#F2F3F7] w-fit flex justify-center items-center mb-2">
                   <BarChart className="size-5 text-[#1c1c1c]" />
                 </div>
               </div>
-              <h5 className="text-[#121212] text-sm mb-4">
-                Partners Wallet Balance
-              </h5>
-              <p className="text-lg">₦5,000,000.55</p>
+              <h5 className="text-[#121212] text-sm mb-4">Upcoming Payments</h5>
+              <p className="text-lg">₦{total?.total_payments}</p>
             </div>
           </div>
         </div>
