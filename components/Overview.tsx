@@ -53,7 +53,9 @@ const Overview = () => {
         <div>
           <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-6 gap-y-4 mb-6">
             <div className="card">
-              <h5 className="mb-6 text-[#121212] text-sm">Orders</h5>
+              <h5 className="mb-6 text-[#121212] text-sm">
+                <Skeleton className="w-16 h-6" />
+              </h5>
               <div className="flex justify-between items-center mb-8 text-[#E87000] text-sm font-medium">
                 <Skeleton className="w-24 h-7 rounded-full" />
                 <Skeleton className="w-10 h-6" />
@@ -85,7 +87,7 @@ const Overview = () => {
                 <div className="card">
                   <div className="flex justify-between items-center mb-6 text-[#121212]">
                     <h5 className="text-sm">Senders</h5>
-                    <p>100</p>
+                    <p><Skeleton className="w-8 h-6" /></p>
                   </div>
                   <div className="flex justify-between items-center text-[#059669] text-sm mb-1">
                     <h5 className="text-sm">Android</h5>
