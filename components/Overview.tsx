@@ -86,44 +86,45 @@ const Overview = () => {
               <div className="grid lg:grid-cols-4 grid-cols-1 gap-6">
                 <div className="card">
                   <div className="flex justify-between items-center mb-6 text-[#121212]">
-                    <h5 className="text-sm">Senders</h5>
-                    <p><Skeleton className="w-8 h-6" /></p>
+                    <Skeleton className="w-16 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                   <div className="flex justify-between items-center text-[#059669] text-sm mb-1">
-                    <h5 className="text-sm">Android</h5>
-                    <p>70</p>
+                    <Skeleton className="w-14 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                   <div className="flex justify-between items-center text-[#E87000] text-sm">
-                    <h5 className="text-sm">iPhone</h5>
-                    <p>30</p>
+                    <Skeleton className="w-14 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                 </div>
                 <div className="card">
                   <div className="flex justify-between items-center mb-6 text-[#121212]">
-                    <h5 className="text-sm">Partners</h5>
-                    <p>100</p>
+                    <Skeleton className="w-16 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                   <div className="flex justify-between items-center text-[#059669] text-sm mb-1">
-                    <h5 className="text-sm">Android</h5>
-                    <p>70</p>
+                    <Skeleton className="w-14 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                   <div className="flex justify-between items-center text-[#E87000] text-sm">
-                    <h5 className="text-sm">iPhone</h5>
-                    <p>30</p>
+                    <Skeleton className="w-14 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                 </div>
+
                 <div className="card">
                   <div className="flex justify-between items-center mb-4 text-[#121212]">
-                    <h5 className="text-sm">Centers</h5>
-                    <p>100</p>
+                    <Skeleton className="w-16 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                   <div className="flex justify-between items-center mb-4">
-                    <h5 className="text-sm">Hubs</h5>
-                    <p>70</p>
+                    <Skeleton className="w-10 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                   <div className="flex justify-between items-center">
-                    <h5 className="text-sm">Sweepers</h5>
-                    <p>30</p>
+                    <Skeleton className="w-16 h-6" />
+                    <Skeleton className="w-8 h-6" />
                   </div>
                 </div>
                 <div className="card">
@@ -132,8 +133,8 @@ const Overview = () => {
                       <ChartSpline className="size-5 text-[#1c1c1c]" />
                     </div>
                   </div>
-                  <h5 className="text-[#121212] text-sm mb-4">Revenue</h5>
-                  <p className="text-lg">₦5,000,000.55</p>
+                  <Skeleton className="w-16 h-6 mb-4" />
+                  <Skeleton className="w-32 h-6" />
                 </div>
                 <div className="lg:col-span-4">
                   <div className="grid lg:grid-cols-4 gap-6">
@@ -147,10 +148,8 @@ const Overview = () => {
                             <BarChart className="size-5 text-[#1c1c1c]" />
                           </div>
                         </div>
-                        <h5 className="text-[#121212] text-sm mb-4">
-                          PayStack Balance
-                        </h5>
-                        <p className="text-lg">₦5,000,000.55</p>
+                        <Skeleton className="w-16 h-6 mb-4" />
+                        <Skeleton className="w-32 h-6" />
                       </div>
                       <div className="card">
                         <div>
@@ -158,10 +157,8 @@ const Overview = () => {
                             <BarChart className="size-5 text-[#1c1c1c]" />
                           </div>
                         </div>
-                        <h5 className="text-[#121212] text-sm mb-4">
-                          SMS Balance
-                        </h5>
-                        <p className="text-lg">₦5,000,000.55</p>
+                        <Skeleton className="w-16 h-6 mb-4" />
+                        <Skeleton className="w-32 h-6" />
                       </div>
                     </div>
                   </div>
@@ -176,10 +173,8 @@ const Overview = () => {
                   <BarChart className="size-5 text-[#1c1c1c]" />
                 </div>
               </div>
-              <h5 className="text-[#121212] text-sm mb-4">
-                Senders Wallet Balance
-              </h5>
-              <p className="text-lg">₦5,000,000.55</p>
+              <Skeleton className="w-40 h-6 mb-4" />
+              <Skeleton className="w-32 h-6" />
             </div>
             <div className="card">
               <div>
@@ -187,10 +182,8 @@ const Overview = () => {
                   <BarChart className="size-5 text-[#1c1c1c]" />
                 </div>
               </div>
-              <h5 className="text-[#121212] text-sm mb-4">
-                Partners Wallet Balance
-              </h5>
-              <p className="text-lg">₦5,000,000.55</p>
+              <Skeleton className="w-40 h-6 mb-4" />
+              <Skeleton className="w-32 h-6" />
             </div>
             <div className="card">
               <div>
@@ -198,10 +191,8 @@ const Overview = () => {
                   <BarChart className="size-5 text-[#1c1c1c]" />
                 </div>
               </div>
-              <h5 className="text-[#121212] text-sm mb-4">
-                Senders Wallet Balance
-              </h5>
-              <p className="text-lg">₦5,000,000.55</p>
+              <Skeleton className="w-40 h-6 mb-4" />
+              <Skeleton className="w-32 h-6" />
             </div>
             <div className="card">
               <div>
@@ -209,10 +200,8 @@ const Overview = () => {
                   <BarChart className="size-5 text-[#1c1c1c]" />
                 </div>
               </div>
-              <h5 className="text-[#121212] text-sm mb-4">
-                Partners Wallet Balance
-              </h5>
-              <p className="text-lg">₦5,000,000.55</p>
+              <Skeleton className="w-40 h-6 mb-4" />
+              <Skeleton className="w-32 h-6" />
             </div>
           </div>
         </div>
