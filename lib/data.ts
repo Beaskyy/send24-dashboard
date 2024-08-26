@@ -11,8 +11,8 @@ export const links = [
       {
         name: "Orders",
         href: "/orders",
-        icon: "/images/house.svg",
-        icon2: "/images/house-2.svg",
+        icon: "/images/order.svg",
+        icon2: "/images/order.svg",
       },
       {
         name: "Transactions",
