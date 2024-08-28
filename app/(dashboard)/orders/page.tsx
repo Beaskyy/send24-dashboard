@@ -8,6 +8,7 @@ import OrderCount from "./components/OrderCount";
 import { toast } from "sonner";
 import { useStateContext } from "@/contexts/ContextProvider";
 import { OrderCountProps } from "@/types";
+import SearchOrders from "./components/SearchOrders";
 
 const Orders = () => {
   const [loading, setLoading] = useState(true);
@@ -36,11 +37,13 @@ const Orders = () => {
           }),
         };
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/admin/orders`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/admin/orders?sort=desc`,
           options
         );
         const data = await response.json();
         console.log(data);
+        setOrders(data["data"]["orders"]);
+        console.log(orders, 'transformed')
       } catch (error: any) {
         toast.error(error.message);
       } finally {
@@ -79,13 +82,15 @@ const Orders = () => {
 
     fetchOrdersCount();
   }, []);
+
   return (
-    <main className="lg:mt-[52px] mt-8 lg:ml-10 lg:mr-9 mx-4">
+    <main className=" mt-8 lg:ml-10 lg:mr-9 mx-4">
+      <SearchOrders />
       <OrderCount orderCount={orderCount} loading={loading} />
       <DataTable
         columns={columns}
-        data={associations}
-        searchKey="name"
+        data={orders}
+        searchKey="label"
         tableName="Orders"
       />
     </main>
