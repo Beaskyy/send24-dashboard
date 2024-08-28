@@ -1,20 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { AssociationsColumn } from "./columns";
+import { OrdersColumn } from "./columns";
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 
 interface CellActionProps {
-  data: AssociationsColumn;
+  data: OrdersColumn;
 }
 
 export const CellAction = ({ data }: CellActionProps) => {
@@ -29,9 +27,7 @@ export const CellAction = ({ data }: CellActionProps) => {
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem
-            onClick={() => router.push(`/associations/${data.id}`)}
-          >
+          <DropdownMenuItem onClick={() => router.push(`/orders/${data.uuid}`)}>
             View Details
           </DropdownMenuItem>
         </DropdownMenuContent>

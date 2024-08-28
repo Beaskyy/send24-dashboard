@@ -65,7 +65,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="w-full mb-6">
-      <div className="border border-[#E6E6E6] rounded-2xl bg-white">
+      <div className="card">
         <div className="flex flex-col lg:flex-row justify-between items-start ml-[23px] mr-[33px] py-4">
           {tableName !== "Payments" && (
             <h4 className="text-lg text-[#060809] font-medium leading-9">
@@ -77,7 +77,7 @@ export function DataTable<TData, TValue>({
               tableName === "Payments" && "flex-row-reverse"
             }`}
           >
-            <Button className="bg-white text-[#060809] text-sm font-normal py-4 px-5 border border-[#F3F3F3]  hover:bg-[#f7f7f7]">
+            {/* <Button className="bg-white text-[#060809] text-sm font-normal py-4 px-5 border border-[#F3F3F3]  hover:bg-[#f7f7f7]">
               <Image
                 src="/images/filter.svg"
                 alt="filter"
@@ -86,14 +86,14 @@ export function DataTable<TData, TValue>({
                 className="mr-1"
               />
               Filter by
-            </Button>
+            </Button> */}
             <div className="relative">
               <Image
                 src="/images/search.svg"
                 alt="Search"
                 width={20}
                 height={20}
-                className="absolute top-2.5 left-2"
+                className="absolute top-3 left-2"
               />
               <Input
                 placeholder={`Search by ${
@@ -110,7 +110,7 @@ export function DataTable<TData, TValue>({
                 className="lg:min-w-[373px] w-full placeholder:text-[#B3B3B3] placeholder:text-sm px-8"
               />
             </div>
-            {tableName !== "Payments" && (
+            {/* {tableName !== "Payments" && (
               <Button className="bg-white text-[#060809] text-sm font-normal py-2 pr-4 pl-3 border border-[#F3F3F3]  hover:bg-[#f7f7f7]">
                 <Image
                   src="/images/export.svg"
@@ -121,7 +121,7 @@ export function DataTable<TData, TValue>({
                 />
                 Export
               </Button>
-            )}
+            )} */}
           </div>
         </div>
         <Table>
@@ -132,7 +132,7 @@ export function DataTable<TData, TValue>({
                   return (
                     <TableHead
                       key={header.id}
-                      className="text-sm text-[#414141] font-semibold leading-[20.3px] uppercase bg-[#F9F9F9] px-6 py-4"
+                      className="text-xs text-[#414141] font-semibold leading-[20.3px] uppercase bg-[#F9F9F9] px-6 py-4 first:rounded-tl-xl last:rounded-tr-xl"
                     >
                       {header.isPlaceholder
                         ? null

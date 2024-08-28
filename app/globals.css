@@ -69,4 +69,7 @@
   .card {
     @apply bg-[#FFFFFF] shadow-2xl rounded-xl py-4 px-6;
   }
+  input {
+    @apply border border-[#DFE8F2] w-full py-2 px-[14px] h-12 rounded-[10px] focus:bg-transparent focus:outline-none bg-transparent focus:border-[#E87000] text-[#0D172B];
+  }
 }
