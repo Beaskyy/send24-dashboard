@@ -90,7 +90,7 @@ const Orders = () => {
       <DataTable
         columns={columns}
         data={orders}
-        searchKey="label"
+        searchKey="order.label"
         tableName="Orders"
       />
     </main>
