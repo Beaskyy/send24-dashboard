@@ -25,8 +25,6 @@ export type OrdersColumn = {
   };
 };
 
-console.log(orderColumns);
-
 export const columns: ColumnDef<OrdersColumn>[] = [
   {
     accessorKey: "order",
