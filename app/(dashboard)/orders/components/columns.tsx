@@ -25,8 +25,6 @@ export type OrdersColumn = {
   };
 };
 
-console.log(orderColumns);
-
 export const columns: ColumnDef<OrdersColumn>[] = [
   {
     accessorKey: "order",
@@ -149,9 +147,6 @@ export const columns: ColumnDef<OrdersColumn>[] = [
     cell: ({ row }) => (
       <>
         <div className="whitespace-nowrap">{row.original.user?.full_name}</div>
-        <div className="text-xs whitespace-nowrap mt-1">
-          {row.original.user?.phone}
-        </div>
       </>
     ),
   },
@@ -163,7 +158,7 @@ export const columns: ColumnDef<OrdersColumn>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="flex items-center gap-1 cursor-pointer"
         >
-          Created
+          Time Created
           <ArrowUp className="text-[#707070] w-4 h-4" />
         </div>
       );
