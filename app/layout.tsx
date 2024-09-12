@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ContextProvider } from "@/contexts/ContextProvider";
 import ClientOnly from "@/components/ClientOnly";
+import { SWRProvider } from "@/providers/swr-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ClientOnly>
           <Toaster />
-          <ContextProvider>{children}</ContextProvider>
+          <ContextProvider>
+            <SWRProvider>{children}</SWRProvider>
+          </ContextProvider>
         </ClientOnly>
       </body>
       <Toaster />

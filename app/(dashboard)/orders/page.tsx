@@ -21,6 +21,7 @@ const Orders = () => {
     cancelled: 0,
     total: 0,
   });
+  const [meta, setMeta] = useState<any>({})
 
   const { token } = useStateContext();
 
@@ -42,6 +43,8 @@ const Orders = () => {
         );
         const data = await response.json();
         console.log(data);
+        console.log(data["data"]["meta"]);
+        setMeta(data["data"]["meta"]);
         setOrders(data["data"]["orders"]);
         console.log(orders, 'transformed')
       } catch (error: any) {
@@ -92,6 +95,14 @@ const Orders = () => {
         data={orders}
         searchKey="order.label"
         tableName="Orders"
+        // lastPage={meta.lastpage}
+        // totalItems={meta.total}
+        // pagination={{
+        //   currentPage: meta.current_page,
+        //   totalPages: meta.last_page,
+        //   perPage: meta.per_page,
+        //   onPageChange: handlePageChange,
+        // }}
       />
     </main>
   );
