@@ -44,7 +44,7 @@ export const columns: ColumnDef<OrdersColumn>[] = [
       const order = row.original.package; // Extracting 'order' from the row data
 
       return (
-        <div className="flex flex-col gap-1 whitespace-nowrap">
+        <div className="flex flex-col gap-1">
           {order?.images.length !== 0 && (
             <Image
               src={`${

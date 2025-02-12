@@ -1,10 +1,12 @@
 import { BarChart, ChartSpline, Filter } from "lucide-react";
 import Chart from "./Chart";
 import axios from "axios";
-import { DateRangePicker } from "react-date-range"
+import { DateRangePicker } from "react-date-range";
 import { useQuery } from "@tanstack/react-query";
 import { Search } from "./Search";
 import { addDays } from "date-fns";
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 import {
   Dialog,
@@ -17,35 +19,14 @@ import {
 import token from "@/lib/access-token";
 import { useState } from "react";
 import { DashboardSkeletons } from "./skeletons/DashboardSkeletons";
+import { DashboardStats } from "@/types";
 
-interface DashboardStats {
-  order_status_count: {
-    pending: number;
-    accepted: number;
-    transit: number;
-    completed: number;
-    cancelled: number;
-    total: number;
-  };
-  user_count: number;
-  android_user_count: number;
-  ios_user_count: number;
-  partner_count: number;
-  android_partner_count: number;
-  ios_partner_count: number;
-  centers_count: number;
-  hubs_count: number;
-  sweepers_count: number;
-  total_revenue: number;
-  paystack_balance: number;
-  termii_balance: number;
-  users_wallet_balance: number;
-  partners_wallet_balance: number;
-  hubs_wallet_balance: number;
-  total_payments: number;
-}
 
-const fetchOrders = async (minDate: string, maxDate: string): Promise<DashboardStats> => {
+
+const fetchDashboardStats = async (
+  minDate: string,
+  maxDate: string
+): Promise<DashboardStats> => {
   const apiUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const headers = {
     "Content-Type": "application/json",
@@ -70,17 +51,13 @@ const Overview = () => {
   const minDate = dateRange[0].startDate.toISOString().split("T")[0];
   const maxDate = dateRange[0].endDate.toISOString().split("T")[0];
 
-
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["dashboard-stats", minDate, maxDate],
-    queryFn: () => fetchOrders(minDate, maxDate),
+    queryFn: () => fetchDashboardStats(minDate, maxDate),
   });
 
   // Handle loading and error states
-  if (isLoading)
-    return (
-      <DashboardSkeletons />
-    );
+  if (isLoading) return <DashboardSkeletons />;
   if (isError) return <div>{error.message}</div>;
 
   const total = data;
@@ -97,18 +74,20 @@ const Overview = () => {
                 <span className="text-sm">Filter</span>
               </div>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="md:min-w-[600px]">
               <DialogHeader>
                 <DialogTitle>Filter Options</DialogTitle>
                 <DialogDescription>
-                <DateRangePicker
-                      onChange={item => setDateRange([item.selection])}
-                      showSelectionPreview={true}
-                      moveRangeOnFirstSelection={false}
-                      months={1}
-                      ranges={dateRange}
-                      direction="horizontal"
-                    />
+                  <DateRangePicker
+                    // @ts-ignore
+                    onChange={(item) => setDateRange([item.selection])}
+                    // @ts-ignore
+                    showSelectionPreview={true}
+                    moveRangeOnFirstSelection={false}
+                    months={1}
+                    ranges={dateRange}
+                    direction="horizontal"
+                  />
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>

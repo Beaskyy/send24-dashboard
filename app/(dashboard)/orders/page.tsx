@@ -9,10 +9,25 @@ import { toast } from "sonner";
 import { useStateContext } from "@/contexts/ContextProvider";
 import { OrderCountProps } from "@/types";
 import SearchOrders from "./components/SearchOrders";
+import token from "@/lib/access-token";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchOrders = async () => {
+  const apiUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  const response = await axios.get(`${apiUrl}/admin/orders?sort=desc`, {
+    headers,
+  });
+  return response.data.data;
+};
 
 const Orders = () => {
   const [loading, setLoading] = useState(true);
-  const [orders, setOrders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [orderCount, setOrderCount] = useState<OrderCountProps>({
     completed: 0,
     pending: 0,
@@ -45,7 +60,6 @@ const Orders = () => {
         console.log(data);
         console.log(data["data"]["meta"]);
         setMeta(data["data"]["meta"]);
-        setOrders(data["data"]["orders"]);
         console.log(orders, "transformed");
       } catch (error: any) {
         toast.error(error.message);
@@ -69,6 +83,7 @@ const Orders = () => {
             Authorization: `Bearer ${token}`,
           }),
         };
+
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/admin/orders/status-counts`,
           options
@@ -86,6 +101,23 @@ const Orders = () => {
     fetchOrdersCount();
   }, []);
 
+  const {
+    data: totalOrders,
+    isLoading: ordersLoading,
+    isError: ordersIsError,
+    error: ordersError,
+  } = useQuery({
+    queryKey: ["orders"],
+    queryFn: fetchOrders,
+  });
+
+  // Handle loading and error states
+  if (ordersLoading) return <h2>Loading</h2>;
+  if (ordersIsError) return <div>{ordersError.message}</div>;
+
+  const orders = totalOrders?.orders;
+  const totalPages = totalOrders?.meta?.last_page;
+
   return (
     <main className=" mt-8 lg:ml-10 lg:mr-9 mx-4">
       <SearchOrders />
@@ -95,17 +127,9 @@ const Orders = () => {
         data={orders}
         searchKey="order.label"
         tableName="Orders"
-        totalPages={data?.total_pages}
+        totalPages={totalPages}
         onPageChange={(page: number) => setCurrentPage(page)}
         currentPage={currentPage}
-        // lastPage={meta.lastpage}
-        // totalItems={meta.total}
-        // pagination={{
-        //   currentPage: meta.current_page,
-        //   totalPages: meta.last_page,
-        //   perPage: meta.per_page,
-        //   onPageChange: handlePageChange,
-        // }}
       />
     </main>
   );
