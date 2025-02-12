@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import Cookies from "js-cookie";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -67,6 +68,7 @@ const Login = () => {
       } else {
         toast.success(data.message);
         localStorage.setItem("authUser", data.data.token);
+        Cookies.set("token", data.data.token, { expires: 7, secure: true, sameSite: "Strict" });
         window.location.href = `/`;
       }
     } catch (error: any) {

@@ -17,7 +17,7 @@ const Header = ({ headerText }: { headerText: string }) => {
   const { activeMenu, setActiveMenu } = useStateContext();
   return (
     <header
-      className={`fixed  z-20 w-full bg-[#FAFBFC] transition-all duration-300 ${
+      className={`fixed  z-20 w-full bg-[#FAFBFC] transition-all duration-300 shadow-lg shadow-primary/5 ${
         activeMenu ? "lg:left-[252px] lg:w-custom" : "lg:left-0"
       }`}
     >

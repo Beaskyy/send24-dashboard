@@ -21,7 +21,7 @@ const Orders = () => {
     cancelled: 0,
     total: 0,
   });
-  const [meta, setMeta] = useState<any>({})
+  const [meta, setMeta] = useState<any>({});
 
   const { token } = useStateContext();
 
@@ -46,7 +46,7 @@ const Orders = () => {
         console.log(data["data"]["meta"]);
         setMeta(data["data"]["meta"]);
         setOrders(data["data"]["orders"]);
-        console.log(orders, 'transformed')
+        console.log(orders, "transformed");
       } catch (error: any) {
         toast.error(error.message);
       } finally {
@@ -95,6 +95,9 @@ const Orders = () => {
         data={orders}
         searchKey="order.label"
         tableName="Orders"
+        totalPages={data?.total_pages}
+        onPageChange={(page: number) => setCurrentPage(page)}
+        currentPage={currentPage}
         // lastPage={meta.lastpage}
         // totalItems={meta.total}
         // pagination={{

@@ -31,6 +31,9 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
   searchKey: string;
   tableName: string;
+  currentPage: number;
+  totalPages?: number;
+  onPageChange?: (page: number) => void;
 }
 
 export function DataTable<TData, TValue>({
@@ -38,6 +41,8 @@ export function DataTable<TData, TValue>({
   data,
   searchKey,
   tableName,
+  currentPage,
+  totalPages,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -55,6 +60,14 @@ export function DataTable<TData, TValue>({
       sorting,
       columnFilters,
     },
+    initialState: {
+      pagination: {
+        pageSize: 50,
+        pageIndex: 0,
+      },
+    },
+    manualPagination: true,
+    pageCount: totalPages || 1,
   });
 
   const pageSize = table.getState().pagination.pageSize;
