@@ -3,26 +3,34 @@
 import { useStateContext } from "@/contexts/ContextProvider";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { links } from "@/lib/data";
 import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
-const Sidebar = ({
-  setHeaderText,
-}: {
-  setHeaderText: (value: string) => void;
-}) => {
-  const { activeMenu, setActiveMenu, screenSize, setScreenSize } =
+const Sidebar = () => {
+  const pathname = usePathname();
+  const { activeMenu, setActiveMenu, setScreenSize } =
     useStateContext();
   const [activeLink, setActiveLink] = useState("");
 
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setScreenSize]);
+
   const handleClick = (name: string) => {
     setActiveLink(name);
-    setHeaderText(name);
   };
 
   return (
-    <div className="hidden lg:flex flex-col justify-between border-r border-[#E1E2E6] min-h-screen h-screen lg:overflow-hidden overflow-auto lg:hover:overflow-auto px-4 z-50 shrink-0 pb-[34px] transition ease-in duration-1000">
+    <div
+      className={`hidden bg-white lg:flex flex-col justify-between border-r border-[#E1E2E6] min-h-screen h-screen lg:overflow-hidden overflow-auto lg:hover:overflow-auto px-4 z-50 shrink-0 pb-[34px] transition ease-in duration-1000 ${
+        !activeMenu ? "lg:hidden" : ""
+      }`}
+    >
       <div className="flex flex-col">
         <div className="flex justify-between items-center pt-6 pb-10 bg-white">
           <Link href="/">
@@ -36,10 +44,12 @@ const Sidebar = ({
           </Link>
           <div>
             {activeMenu && (
-              <Menu
-                className="cursor-pointer size-6"
+              <button
+                aria-label="Toggle menu"
                 onClick={() => setActiveMenu(!activeMenu)}
-              />
+              >
+                <Menu className="cursor-pointer size-6" />
+              </button>
             )}
           </div>
         </div>
@@ -54,10 +64,10 @@ const Sidebar = ({
               <div key={name}>
                 <Link
                   href={href}
-                  className={`h-8 pt-1.5 pr-[103px] pb-1.5 flex items-center rounded-lg mb-2 cursor-pointer ${
-                    activeLink === name
-                      ? "bg-[#071A7E0D]"
-                      : "hover:bg-[#071A7E0D]"
+                  className={`h-10 pt-1.5 pr-[103px] pb-1.5 flex items-center rounded-lg mb-2 cursor-pointer ${
+                    pathname === href
+                      ? "bg-[#FFEBEE]"
+                      : "hover:bg-[#FFEBEE]"
                   }`}
                   onClick={() => handleClick(name)}
                 >
@@ -69,9 +79,9 @@ const Sidebar = ({
                       height={20}
                     />
                     <span
-                      className={`text-sm font-normal whitespace-nowrap ${
-                        activeLink === name
-                          ? "text-[#071A7E]"
+                      className={`text-sm font-medium whitespace-nowrap ${
+                        pathname === href
+                          ? "text-primary"
                           : "text-[#060809]"
                       }`}
                     >

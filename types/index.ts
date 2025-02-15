@@ -33,3 +33,8 @@ export interface OrderCountProps {
   cancelled: number;
   total: number;
 }
+
+export interface OrderSummaryProps {
+  orderCount: OrderCountProps;
+  loading: boolean;
+}

@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const Header = ({ headerText }: { headerText: string }) => {
+const Header = () => {
   const { activeMenu, setActiveMenu } = useStateContext();
   return (
     <header
@@ -23,29 +23,7 @@ const Header = ({ headerText }: { headerText: string }) => {
     >
       <div className="flex justify-between items-center py-[26px]">
         <div className="pl-10">
-          {activeMenu ? (
-            <h5 className="hidden lg:flex text-sm font-normal leading-[20.3px] text-[#5D5D5D]">
-              {headerText}
-            </h5>
-          ) : (
-            <div className="hidden lg:flex items-center gap-2">
-              <div>
-                <Image
-                  src="/images/logo.png"
-                  alt="Logo"
-                  width={100}
-                  height={28}
-                  className="cursor-pointer"
-                />
-              </div>
-              <div>
-                <Menu
-                  className="cursor-pointer size-6"
-                  onClick={() => setActiveMenu(!activeMenu)}
-                />
-              </div>
-            </div>
-          )}
+          
           <div className="lg:hidden">
             <Navigation />
           </div>

@@ -29,7 +29,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  searchKey: string;
+  // searchKey: string;
   tableName: string;
   currentPage: number;
   totalPages?: number;
@@ -39,7 +39,6 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-  searchKey,
   tableName,
   currentPage,
   totalPages,
@@ -89,53 +88,7 @@ export function DataTable<TData, TValue>({
             className={`flex items-center gap-2 ${
               tableName === "Payments" && "flex-row-reverse"
             }`}
-          >
-            {/* <Button className="bg-white text-[#060809] text-sm font-normal py-4 px-5 border border-[#F3F3F3]  hover:bg-[#f7f7f7]">
-              <Image
-                src="/images/filter.svg"
-                alt="filter"
-                width={20}
-                height={20}
-                className="mr-1"
-              />
-              Filter by
-            </Button> */}
-            <div className="relative">
-              <Image
-                src="/images/search.svg"
-                alt="Search"
-                width={20}
-                height={20}
-                className="absolute top-3 left-2"
-              />
-              <Input
-                placeholder={`Search by ${
-                  tableName === "Payments"
-                    ? "member name..."
-                    : "user name or email "
-                }`}
-                value={
-                  (table.getColumn(searchKey)?.getFilterValue() as string) ?? ""
-                }
-                onChange={(event) =>
-                  table.getColumn(searchKey)?.setFilterValue(event.target.value)
-                }
-                className="lg:min-w-[373px] w-full placeholder:text-[#B3B3B3] placeholder:text-sm px-8"
-              />
-            </div>
-            {/* {tableName !== "Payments" && (
-              <Button className="bg-white text-[#060809] text-sm font-normal py-2 pr-4 pl-3 border border-[#F3F3F3]  hover:bg-[#f7f7f7]">
-                <Image
-                  src="/images/export.svg"
-                  alt="export"
-                  width={20}
-                  height={20}
-                  className="mr-1"
-                />
-                Export
-              </Button>
-            )} */}
-          </div>
+          ></div>
         </div>
         <Table>
           <TableHeader>
