@@ -6,7 +6,6 @@ import { useStateContext } from "@/contexts/ContextProvider";
 import { useState } from "react";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-  const [headerText, setHeaderText] = useState("Dashboard");
   const { activeMenu, setActiveMenu, screenSize } = useStateContext();
 
   const handleCloseSidebar = () => {
@@ -26,7 +25,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       >
         {activeMenu && (
           <div className="w-[252px] fixed z-50 bg-white left-0">
-            <Sidebar setHeaderText={setHeaderText} />
+            <Sidebar />
           </div>
         )}
         <div
@@ -35,11 +34,11 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           }`}
         >
           <div className="fixed lg:static w-full z-20">
-            <Header headerText={headerText} />
+            <Header />
           </div>
         </div>
         <div
-          className={`absolute top-20 transition-all duration-300 ${
+          className={`absolute top-28 transition-all duration-300 ${
             activeMenu
               ? "lg:w-custom w-full overflow-hidden lg:left-[252px]"
               : "w-full lg:left-0"
