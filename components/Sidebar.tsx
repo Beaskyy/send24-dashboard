@@ -56,7 +56,7 @@ const Sidebar = () => {
         {links?.map(({ main, subMenu }) => (
           <div className="mb-6" key={main}>
             <div>
-              <p className={`text-sm text-[#7A7C7B] font-normal mb-4`}>
+              <p className={`text-xs text-[#7A7C7B] font-medium mb-4 uppercase`}>
                 {main}
               </p>
             </div>
