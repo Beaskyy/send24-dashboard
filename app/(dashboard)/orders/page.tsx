@@ -71,10 +71,7 @@ const Orders = () => {
   //         options
   //       );
   //       const data = await response.json();
-  //       console.log(data);
-  //       console.log(data["data"]["meta"]);
   //       setMeta(data["data"]["meta"]);
-  //       console.log(orders, "transformed");
   //     } catch (error: any) {
   //       toast.error(error.message);
   //     } finally {
@@ -103,7 +100,6 @@ const Orders = () => {
   //         options
   //       );
   //       const data = await response.json();
-  //       console.log(data["data"]);
   //       setOrderCount(data["data"]);
   //     } catch (error: any) {
   //       toast.error(error.message);
