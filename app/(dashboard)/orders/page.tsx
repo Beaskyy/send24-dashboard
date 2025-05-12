@@ -54,62 +54,7 @@ const Orders = () => {
 
   const { token } = useStateContext();
 
-  // fetch orders
-  // useEffect(() => {
-  //   const fetchOrders = async () => {
-  //     try {
-  //       const options = {
-  //         method: "GET",
-  //         headers: new Headers({
-  //           Accept: "application/json",
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         }),
-  //       };
-  //       const response = await fetch(
-  //         `${process.env.NEXT_PUBLIC_BASE_URL}/admin/orders?sort=desc`,
-  //         options
-  //       );
-  //       const data = await response.json();
-  //       setMeta(data["data"]["meta"]);
-  //     } catch (error: any) {
-  //       toast.error(error.message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
 
-  //   fetchOrders();
-  // }, []);
-
-  // fetch orders count
-  // useEffect(() => {
-  //   const fetchOrdersCount = async () => {
-  //     try {
-  //       const options = {
-  //         method: "GET",
-  //         headers: new Headers({
-  //           Accept: "application/json",
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         }),
-  //       };
-
-  //       const response = await fetch(
-  //         `${process.env.NEXT_PUBLIC_BASE_URL}/admin/orders/status-counts`,
-  //         options
-  //       );
-  //       const data = await response.json();
-  //       setOrderCount(data["data"]);
-  //     } catch (error: any) {
-  //       toast.error(error.message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchOrdersCount();
-  // }, []);
 
   const {data: dataCount, isLoading: countLoading, isError: countIsError, error: countError} = useQuery({
     queryKey: ["order-count"],
