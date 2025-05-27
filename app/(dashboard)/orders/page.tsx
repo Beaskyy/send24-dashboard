@@ -1,13 +1,10 @@
 "use client";
 
-import { associations } from "@/lib/data";
 import { columns } from "./components/columns";
 import { DataTable } from "@/components/data-table";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import OrderCount from "./components/OrderCount";
-import { toast } from "sonner";
 import { useStateContext } from "@/contexts/ContextProvider";
-import { OrderCountProps } from "@/types";
 import SearchOrders from "./components/SearchOrders";
 import token from "@/lib/access-token";
 import axios from "axios";
@@ -50,9 +47,6 @@ const Orders = () => {
   //   cancelled: 0,
   //   total: 0,
   // });
-  const [meta, setMeta] = useState<any>({});
-
-  const { token } = useStateContext();
 
 
 
